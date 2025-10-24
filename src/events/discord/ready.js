@@ -182,9 +182,6 @@ async function connect247Guild(client, guildData) {
         "247Mode",
         `Player already exists for guild ${guild.name}, updating 24/7 flags`,
       );
-      existingPlayer.set("247Mode", true);
-      existingPlayer.set("247VoiceChannel", voiceChannel.id);
-      existingPlayer.set("247TextChannel", textChannel.id);
       return;
     }
 
@@ -212,10 +209,6 @@ async function connect247Guild(client, guildData) {
     });
     
     
-    player.set("247Mode", true);
-    player.set("247VoiceChannel", voiceChannel.id);
-    player.set("247TextChannel", textChannel.id);
-    player.set("247LastConnected", Date.now());
 
     logger.success(
       "247Mode",
@@ -308,10 +301,6 @@ async function checkSingle247Connection(client, guildData) {
       if (!newPlayer.connected) {
         await newPlayer.connect();
       }
-      newPlayer.set("247Mode", true);
-      newPlayer.set("247VoiceChannel", voiceChannel.id);
-      newPlayer.set("247TextChannel", textChannel.id);
-      newPlayer.set("247LastReconnected", Date.now());
 
       logger.success(
         "247Mode",
