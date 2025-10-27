@@ -760,7 +760,7 @@ class HelpCommand extends Command {
         .addTextDisplayComponents(new TextDisplayBuilder().setContent(content))
         .setThumbnailAccessory(
           new ThumbnailBuilder().setURL(
-            client.user.displayAvatarURL({ size: 512, extension: 'png' }),
+          config.assets?.helpThumbnail || config.assets?.defaultThumbnail
           ),
         );
 
